@@ -68,7 +68,7 @@
 		var inputBuffer;
 		function record(stream) {
 			//get input from stream
-			inputPoint = audioContext.createMediaStreamSource(stream);
+			inputPoint = context.createMediaStreamSource(stream);
 			audioRecorder = new Recorder(inputPoint);
 			audioRecorder.record();
 		}

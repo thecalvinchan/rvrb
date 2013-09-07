@@ -5,8 +5,6 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"],1);
 
-mysql_connect($server, $username, $password);
+$connection = mysql_connect($server, $username, $password);
 mysql_select_db($db);
-
-echo (getenv("CLEARDB_DATABASE_URL"));
 

@@ -14,6 +14,7 @@ $track_data = array(
 );
 
 $track_info = $client->post('tracks', $track_data);
+var_dump($track_info);
 $track = json_decode($track_info);
 
 ?>

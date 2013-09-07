@@ -1,5 +1,6 @@
 <?php
 require_once 'php-soundcloud/Services/Soundcloud.php';
+require_once 'dbconnect.php';
 
 $type = $_GET['type'];
 $code = $_GET['code'];
@@ -23,7 +24,10 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   $key = 'id';
   $id = $user->$key;
-  echo $id;
+  $query = 'INSERT INTO rvrb_users(id) SELECT '.$id.' FROM DUAL WHERE NOT EXISTS (SELECT 'id' from rvrb_users WHERE id='.$id.' LIMIT 1';
+  if (!mysql_query($query)) {
+    echo ('nope');
+  }
 } else {
   header($homepage);
 }

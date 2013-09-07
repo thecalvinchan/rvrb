@@ -44,57 +44,98 @@ if (isset($type)) {
     </head>
     <body>
       <script src="recorder.js"></script>
-      <script>
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        var context = new AudioContext();
-        var source = context.createBufferSource();
-        var inputPoint;
-        var audioRecorder;
-        var inputBuffer;
-        var request = new XMLHttpRequest();
-        var url = "../daniel/atmosphere.mp3";
-        request.open('GET', url, true);
-        request.responseType = 'arraybuffer';
+	<script>
+		//for backward compatibility
+		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-        request.onload = function() {
-          context.decodeAudioData(request.response, function(buffer) {
-            source.buffer = buffer;
-            source.connect(context.destination);
+		//this is like a canvas for audio
+		var context = new AudioContext();
 
-            var filter = context.createBiquadFilter();
-            source.connect(filter);
-            filter.connect(context.destination);
-            filter.type = 0;
-            filter.frequency.value = 4400;
-          })
-        }
-        request.send();
+		//object for web audio source
+		var source = context.createBufferSource();
 
-        if (!navigator.getUserMedia) {
-          navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-        }
-        function record(stream) {
-          inputPoint = context.createMediaStreamSource(stream);
-          audioRecorder = new Recorder(inputPoint);
-          audioRecorder.record();
-        }
-        function startRecord() {
-          navigator.getUserMedia({audio:true}, record, function(e) {
-            console.log('Error getting audio');
-            console.log(e);
-          });
-        }
-        function stopRecord() {
-          audioRecorder.stop();
-          audioRecorder.getBuffer(function(buffer){
-            inputBuffer = buffer[0];
-          });
-        }
-        function playSong() {
-          console.log("Starting");
-          source.start(0);
-        }
-      </script>
+
+
+		//load file
+		var request = new XMLHttpRequest();
+		var url = "atmosphere.mp3";
+		request.open('GET', url, true);
+		request.responseType = 'arraybuffer';
+
+		//decode async
+		request.onload = function() {
+			context.decodeAudioData(request.response, function(buffer) {
+				//set buffer to 
+				source.buffer = buffer;
+				source.connect(context.destination);
+
+				var filter = context.createBiquadFilter();
+				// Create the audio graph.
+				source.connect(filter);
+				filter.connect(context.destination);
+				// Create and specify parameters for the low-pass filter.
+				filter.type = 0; // Low-pass filter. See BiquadFilterNode docs
+				filter.frequency.value = 4400; // Set cutoff to 440 HZ
+			})
+		}
+		request.send();
+
+		//play onclick
+		function playSong()
+		{
+			source.start(0);
+		}
+
+		//backwards compatibility for recording
+		if (!navigator.getUserMedia)
+            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        //toggle record button
+        var recording = false;
+		function toggleRecord()
+		{
+			if (!recording) {
+				//request permissions from browser for recording
+        		navigator.getUserMedia({audio:true}, record, function(e) {
+            		alert('Error getting audio');
+            	console.log(e);
+        });
+			} else {
+				stopRecord();
+			}
+			recording = !recording;
+		}
+
+		//store audio input
+		var inputPoint;
+		var audioRecorder;
+		var inputBuffer;
+		function record(stream) {
+			//get input from stream
+			inputPoint = context.createMediaStreamSource(stream);
+			audioRecorder = new Recorder(inputPoint);
+			audioRecorder.record();
+		}
+
+		function stopRecord() {
+			audioRecorder.stop();
+			//copy temporary buffer to buffer
+			audioRecorder.getBuffer(function(buffer){
+				inputBuffer = buffer[0];
+			});
+		}
+
+		function playback() {
+			var newSource = context.createBufferSource();
+    		var newBuffer = context.createBuffer( 1, inputBuffer.length, context.sampleRate );
+		    newBuffer.getChannelData(0).set(inputBuffer);
+		    newSource.buffer = newBuffer;
+
+		    newSource.connect( context.destination );
+		    newSource.start(0);
+		}
+
+		</script>
       <button onclick="playSong()">Play Song</button>
       <button onclick="startRecord()">Start Record</button>
       <button onclick="stopRecord()">Stop Record</button>

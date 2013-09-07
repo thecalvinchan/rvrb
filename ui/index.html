@@ -1,23 +1,16 @@
 <!doctype html>
-<html ng-app>
+<html>
 <head>
     <title>rvrb-beta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="css/normalize.css">-->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery.js"></script>
 </head>
 <body>
     <h1>Hello World</h1>
-    <section id="tracks" ng-controller="trackCtrl">
-        <ul>
-            <li class="tracks" ng-repeat="track in tracks">
-                <div draggable="true" ondragend="dragClipEnd({{track.name}},{{clip.Id}})(event)" class="clips" ng-repeat="clip in track.clips" style="width: {{clip.duration()}}px; left: {{clip.offset}}" id="clip-{{clip.clipId}}"> 
-                    {{clip}}
-                </div>
-            </li>
-        </ul>
+    <section id="tracks">
         <a data-toggle="modal" href="#addTrackModal" id="addNew">&plus; Add Track</a>
     
 
@@ -33,7 +26,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="trackName">Enter the track name:</label>
-                            <input type="text" ng-model="newTrackName" class="form-control" id="trackName" placeholder="e.g. Bass Track" value="{{newTrackName}}"> 
+                            <input type="text" ng-model="newTrackName" class="form-control" id="trackName" placeholder="e.g. Bass Track"> 
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -67,8 +60,7 @@
             </div>
         </div>
     </section>
-    <script src="//code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/alt.js"></script>
 </body>
 </html>

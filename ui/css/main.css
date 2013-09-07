@@ -19,7 +19,7 @@ a:hover {
     padding: 0;
 }
 
-.tracks {
+.track {
     background-color: #f7b8ff;
     border-bottom: 1px solid #d8aad1;
     height: 49px;
@@ -28,17 +28,15 @@ a:hover {
     width: 100%;
 }
 
-.tracks:last-child {
+.track:last-child {
     border-bottom: none;
 }
 
-.clips {
+.clip {
     background-color: black;
     height: inherit;
-    left: attr(offset);
     line-height: inherit;
     position: absolute;
-    width: attr(duration)px;
 }
 
 #addNew {

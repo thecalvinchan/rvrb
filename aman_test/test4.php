@@ -91,6 +91,7 @@ if (isset($type)) {
           });
         }
         function playSong() {
+          console.log("Starting");
           source.start(0);
         }
       </script>

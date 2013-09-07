@@ -82,9 +82,13 @@
 		}
 
 		function playback() {
-			source.buffer = inputBuffer;
-			source.connect(context.destination);
-			source.start(0);
+			var newSource = context.createBufferSourceNode();
+    		var newBuffer = context.createBuffer( 1, inputBuffer.length, context.sampleRate );
+		    newBuffer.getChannelData(0).set(inputBuffer);
+		    newSource.buffer = newBuffer;
+
+		    newSource.connect( audioContext.destination );
+		    newSource.start(0);
 		}
 
 		</script>

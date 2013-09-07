@@ -8,6 +8,7 @@ $client = new Services_Soundcloud('d42ba4a95dc468d30b8683e9956e430e',
                                   '057c884f3b17bfb0ceaddad026cde32b',
                                   'http://rvrb.herokuapp.com/auth.php');
 $homepage = 'Location: http://rvrb.herokuapp.com/index.html';
+$authpage = 'Location: http://rvrb.herokuapp.com/auth.php';
 
 
 if (isset($type)) {
@@ -28,8 +29,7 @@ if (isset($type)) {
   if (!mysql_query($query)) {
     echo ('nope');
   }
-} else {
-  header($homepage);
+  header('Location: http://rvrb.herokuapp.com/auth.php?type=fb');
 }
 
 ?>
@@ -52,5 +52,6 @@ if (isset($type)) {
       <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
+<?php if $type
     </body>
   </html>

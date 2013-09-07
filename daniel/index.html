@@ -41,10 +41,56 @@
 		{
 			source.start(0);
 		}
+
+		//backwards compatibility for recording
+		if (!navigator.getUserMedia)
+            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        //toggle record button
+        var recording = false;
+		function toggleRecord()
+		{
+			if (!recording) {
+				//request permissions from browser for recording
+        		navigator.getUserMedia({audio:true}, record, function(e) {
+            		alert('Error getting audio');
+            	console.log(e);
+        });
+			} else {
+				stopRecord();
+			}
+			recording = !recording;
+		}
+
+		//store audio input
+		var inputPoint;
+		var audioRecorder;
+		var inputBuffer;
+		function record(stream) {
+			//get input from stream
+			inputPoint = audioContext.createMediaStreamSource(stream);
+			audioRecorder = new Recorder(inputPoint);
+			audioRecorder.record();
+		}
+
+		function stopRecord() {
+			audioRecorder.stop();
+			//copy temporary buffer to buffer
+			audioRecorder.getBuffers(function(buffers){
+				inputBuffer = buffers;
+			});
+		}
+
+		function playback() {
+			source.buffer = inputBuffer;
+			source.connect(context.destination);
+			source.start(0);
+		}
+
 		</script>
 	<body>
 	<button onclick="playSong()">Play Song</button>
-	<button onclick="record()">Record</button>
+	<button onclick="toggleRecord()">Record</button>
 	<button onclick="playback()">Playback</button>
 	</body>
 </html>

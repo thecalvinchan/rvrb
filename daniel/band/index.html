@@ -1,0 +1,140 @@
+<html>
+	<body>
+	<button onclick="togglePlay();">Play/Pause</button>
+	<span id="status">Tap tempo using space bar 4 times.</span>
+	<script src="band.js"></script>
+	<script>
+		var times = new Array();
+		var bpm = 0;
+
+		//track time
+		document.body.onkeydown = function(event) {
+			event = event || window.event;
+			var keycode = event.charCode || event.keyCode;
+			if (keycode == 32) {
+				times.push(new Date().getTime())
+			}
+			if (times.length >= 4) {
+				var temp = times[3] - times[2];
+				temp += times[2] - times[1];
+				temp += times[1] - times[0];
+				temp = temp / 3; //ms in between beats
+				temp /= 1000; //sec in between
+				bpm = 60 / temp;
+				document.getElementById("status").innerHTML = bpm + " BPM";
+				createTrack();
+			}
+		}
+
+		function createTrack()
+		{
+			var FourChords = new BandJS();
+			FourChords.setTimeSignature(4,4);
+			FourChords.setTempo(bpm);
+			var bot = music.createInstrument();
+			var mid = music.createInstrument();
+			//var top = music.createInstrument();
+
+			//I64
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'C4');
+			mid.note('eighth', 'E4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'C4');
+			mid.note('eighth', 'E4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'C4');
+			mid.note('eighth', 'E4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'C4');
+			mid.note('eighth', 'E4');
+
+			//V
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'B4');
+			mid.note('eighth', 'D4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'B4');
+			mid.note('eighth', 'D4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'B4');
+			mid.note('eighth', 'D4');
+
+			bot.note('eighth', 'G3');
+			mid.rest('eighth');
+			bot.note('eighth', 'B4');
+			mid.note('eighth', 'D4');
+
+			//vi64
+			bot.note('eighth', 'E3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'E3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'E3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'E3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			//IV
+			bot.note('eighth', 'F3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'F3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'F3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			bot.note('eighth', 'F3');
+			mid.rest('eighth');
+			bot.note('eighth', 'A4');
+			mid.note('eighth', 'C4');
+
+			//finish
+			bot.finish();
+			mid.finish();
+			FourChords.end();
+			FourCHords.loop(true);
+		}
+
+		var playing = false;
+		function togglePlay() {
+			if (!playing) {
+				FourChords.play();
+			} else {
+				FourChords.pause();
+			}
+			playing = !playing;
+		}
+	</script>
+	</body>
+</html>

@@ -2,7 +2,7 @@
 	<body>
 	<button onclick="togglePlay();">Play/Pause</button>
 	<span id="status">Tap tempo using space bar 4 times.</span>
-	<script src="band.js"></script>
+	<script src="band.min.js"></script>
 	<script>
 		var times = new Array();
 		var bpm = 0;
@@ -127,6 +127,7 @@
 		}
 
 		var playing = false;
+
 		function togglePlay() {
 			if (!playing) {
 				FourChords.play();

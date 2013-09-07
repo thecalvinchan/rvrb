@@ -21,11 +21,14 @@ $track = array(
   'track[asset_data]' => 'super_appropriate_song.mp3'
 );
 
+/*
 try {
     $response = $client->post('tracks', $track);
+    var_dump($response);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
     echo $e->getMessage();
 }
+ */
 
 ?>
 <html>

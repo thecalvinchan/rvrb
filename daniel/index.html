@@ -76,8 +76,8 @@
 		function stopRecord() {
 			audioRecorder.stop();
 			//copy temporary buffer to buffer
-			audioRecorder.getBuffers(function(buffers){
-				inputBuffer = buffers;
+			audioRecorder.getBuffer(function(buffer){
+				inputBuffer = buffer;
 			});
 		}
 

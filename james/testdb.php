@@ -5,7 +5,10 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"],1);
 
-mysql_connect($server, $username, $password);
+$connection = mysql_connect($server, $username, $password);
 mysql_select_db($db);
 
-echo (getenv("CLEARDB_DATABASE_URL"));
+$sql = "INSERT INTO rvrb_users (id) VALUES 11111111";
+if (!mysql_query($connection, $sql)) {
+	echo ('everything is terrible');
+}

@@ -12,7 +12,8 @@ if ($type == 'sc') {
 } elseif ($type == 'fb') {
   header('Location: http://rvrb.herokuapp.com/index.html');
 } else {
-  header('Location: http://rvrb.herokuapp.com/index.html');
+  var_dump($type);
+//  header('Location: http://rvrb.herokuapp.com/index.html');
 }
 
 ?>

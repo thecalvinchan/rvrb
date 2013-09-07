@@ -18,8 +18,10 @@ if (isset($type)) {
   $token_info = $client->accessToken($code);
   $user = json_decode($client->get('me'));
   foreach($user as $key=>$value):
-    var_dump($key);
-    var_dump($value);
+    if ($key == "id") {
+      var_dump($key);
+      var_dump($value);
+    }
   endforeach;
 }
 

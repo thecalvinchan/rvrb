@@ -1,4 +1,5 @@
 <html>
+	<script src="recorder.js"></script>
 	<script>
 		//for backward compatibility
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -31,15 +32,19 @@
 				// Create and specify parameters for the low-pass filter.
 				filter.type = 0; // Low-pass filter. See BiquadFilterNode docs
 				filter.frequency.value = 4400; // Set cutoff to 440 HZ
-				//start playing
-				source.start(0);
 			})
 		}
 		request.send();
 
+		function playSong()
+		{
+			source.play(0);
+		}
 		</script>
 	<body>
-
+	<button onclick="playSong()">Play Song</button>
+	<button onclick="record()">Record</button>
+	<button onclick="playback()">Playback</button>
 	</body>
 </html>
 

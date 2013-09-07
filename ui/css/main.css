@@ -22,14 +22,29 @@ a:hover {
 .track {
     background-color: #f7b8ff;
     border-bottom: 1px solid #d8aad1;
-    height: 49px;
-    line-height: 49px;
+    height: 89px;
+    line-height: 89px;
     position: relative;
     width: 100%;
 }
 
 .track:last-child {
     border-bottom: none;
+}
+
+.trackInfo {
+    background-color: #bcafba;
+    border-bottom: 4px solid #888;
+    height: inherit;
+    left: 0px;
+    line-height: 250%;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+}
+
+.trackInfo .glyphicon {
+    margin: 0 10px;
 }
 
 .clip {

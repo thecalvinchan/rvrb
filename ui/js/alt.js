@@ -55,7 +55,7 @@ track.prototype = {
         this._clips[unique] = newClip;
     },
     render : function() {
-        return '<li class="track" id="track'+this._id+'"></li>';
+        return '<li class="track" id="track'+this._id+'"><div class="trackInfo"><p><strong>Track '+(this._id+1)+'</strong></p><p><span class="glyphicon glyphicon-chevron-down"></span><span class="glyphicon glyphicon-volume-off"></span></p></div></li>';
     }
 };
 
@@ -128,28 +128,31 @@ clip.prototype = Object.create(clip.prototype, {
 });
 
 document.onready = function() {
-    window.trackFactory = new trackContainer();
-    window.trackFactory.addTrack();
-    window.trackFactory.tracks[0].addClip();
-    console.log(window.trackFactory.tracks[0]);
-    window.trackFactory.addTrack();
-    window.trackFactory.tracks[0].clips[0].changeTrack(window.trackFactory.tracks[1]);
-    console.log(window.trackFactory.tracks[0]);
-    console.log(window.trackFactory.tracks[1]);
-    render(document.getElementById("tracks"),window.trackFactory,addListeners); 
+    window.rvrb = new rvrbInit();
+    rvrb.trackFactory = new trackContainer();
+    rvrb.trackFactory.addTrack();
+    rvrb.trackFactory.tracks[0].addClip();
+    console.log(rvrb.trackFactory.tracks[0]);
+    rvrb.trackFactory.addTrack();
+    rvrb.trackFactory.tracks[0].clips[0].changeTrack(rvrb.trackFactory.tracks[1]);
+    console.log(rvrb.trackFactory.tracks[0]);
+    console.log(rvrb.trackFactory.tracks[1]);
+    rvrb.render(document.getElementById("tracks"),rvrb.trackFactory,addListeners); 
 }
 
-function render(dom,trackFactory,callback) {
-    dom.innerHTML = trackFactory.render() + dom.innerHTML;
-    var factoryDom = document.getElementById("tf"+trackFactory.id);
-    for (track in trackFactory.tracks) {
-        factoryDom.innerHTML += trackFactory.tracks[track].render();
-        var trackDom = document.getElementById("track"+trackFactory.tracks[track].id);
-        for (clip in trackFactory.tracks[track].clips) {
-            trackDom.innerHTML += trackFactory.tracks[track].clips[clip].render();
+function rvrbInit() {
+    this.render = function(dom,trackFactory,callback) {
+        dom.innerHTML = trackFactory.render() + dom.innerHTML;
+        var factoryDom = document.getElementById("tf"+trackFactory.id);
+        for (track in trackFactory.tracks) {
+            factoryDom.innerHTML += trackFactory.tracks[track].render();
+            var trackDom = document.getElementById("track"+trackFactory.tracks[track].id);
+            for (clip in trackFactory.tracks[track].clips) {
+                trackDom.innerHTML += trackFactory.tracks[track].clips[clip].render();
+            }
         }
-    }
-    callback(trackFactory);
+        callback(trackFactory);
+    };
 }
 
 /** EVENT LISTENERS **/

@@ -8,35 +8,12 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="//code.jquery.com/jquery.js"></script>
 </head>
-<body>
+<body id="rvrb">
     <h1>Hello World</h1>
     <section id="tracks">
         <a data-toggle="modal" href="#addTrackModal" id="addNew">&plus; Add Track</a>
-    
 
         <!-- Modals -->
-        <div class="modal fade" id="addTrackModal"> 
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Add New Track</h4>
-                    </div>
-                    <form role="form" ng-submit="addTrack()">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="trackName">Enter the track name:</label>
-                            <input type="text" ng-model="newTrackName" class="form-control" id="trackName" placeholder="e.g. Bass Track"> 
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary" onclick="$('#addTrackModal').modal('hide')">Add</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
         <div class="modal fade" id="addClipModal"> 
             <div class="modal-dialog">
                 <div class="modal-content">

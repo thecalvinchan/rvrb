@@ -8,7 +8,7 @@ $db = substr($url["path"],1);
 $connection = mysql_connect($server, $username, $password);
 mysql_select_db($db);
 
-$sql = "INSERT INTO rvrb_users (id) VALUES 11111111";
+$sql = "INSERT INTO rvrb_users (id) VALUES (11111111)";
 if (!mysql_query($connection, $sql)) {
 	echo ('everything is terrible');
 }

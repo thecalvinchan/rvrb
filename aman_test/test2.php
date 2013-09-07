@@ -31,8 +31,8 @@ $track = json_decode($track_info);
             <?php endforeach; ?>
         </table>
         <h2>track</h2>
-        <p><?php echo $track; ?></p>
-<h1>HEOIHWOFE</h1>
+        <p><?php var_dump($track); ?></p>
+        <h1>HEOIHWOFE</h1>
         <table>
             <?php foreach($track as $key=>$value): ?>
             <tr>

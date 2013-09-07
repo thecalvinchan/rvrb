@@ -13,12 +13,12 @@ if (isset($type)) {
   if ($type == 'sc') {
     $url = $client->getAuthorizeUrl();
     header("Location: " . $url);
+  } elseif ($type == 'fb') {
+    header($homepage);
   }
 } elseif (isset($code)) {
   $token_info = $client->accessToken($code);
-  
   $user = json_decode($client->get('me'));
-  var_dump($user);
 }
 
 /*

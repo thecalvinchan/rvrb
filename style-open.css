@@ -1,0 +1,58 @@
+::selection{background:#FF9CEE;color:#fff}::-moz-selection{background:#FF9CEE;color:#fff}
+
+a, a:visited, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  background-color: #333333;
+  color: #fff;
+}
+
+.openmixbutton {
+  text-align: center; 
+  height: 50px;
+}
+
+.openmixbutton h3 {
+  font-size: 30px;
+}
+
+.openmixbutton h4 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: -30px;
+  color: grey;
+}
+
+.openmixbutton h5 {
+  text-transform: none;
+  font-size: 20px;
+}
+
+img {
+  position: relative;
+  top: 5px;
+}
+
+.openmixbutton a {
+  text-decoration: none;
+  width: 200px;
+  padding: 10px;&nbsp;
+}
+
+.openmixbutton a:hover {
+  border: 1px solid lightgrey;
+  width: 200px;
+  padding: 10px;
+}
+
+#mixbuttoncontainer { 
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;
+  left: 0;
+  width: 100%;
+}

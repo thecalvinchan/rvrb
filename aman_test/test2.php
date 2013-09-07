@@ -24,6 +24,7 @@ try {
     $track_info = $client->post('tracks', $track_data);
     $track = json_decode($track_info);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
+    var_dump($e);
     echo $e->getMessage();
 }
 

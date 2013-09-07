@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-window.tracksRef;
-=======
->>>>>>> 7ea326e8a0b2d7039683033d6567faa7e03655d7
 function trackCtrl($scope) {
     $scope.tracks = [{name:"Track One doe"},{name:"Track Two doe"}];
     $scope.addTrack = function() {
@@ -13,7 +9,6 @@ function trackCtrl($scope) {
     };
     $scope.addClip = function() {
         $scope.lastAddedTrack.addClip($scope.newClipName); 
-<<<<<<< HEAD
     };
     $scope.$watch("tracks", function(value) {
         console.log(value);
@@ -28,10 +23,6 @@ function dragClipEnd(trackName,clipId) {
         console.log(clip);
     };
 }
-
-=======
-    }
-}    
 
 // Event Listener Functions
 
@@ -49,7 +40,6 @@ function dragClipEnd(clipId) {
     };
 }  
 
->>>>>>> 7ea326e8a0b2d7039683033d6567faa7e03655d7
 // Classes
 
 // string name
@@ -97,15 +87,12 @@ function clip(clipId,trackId,start,end,offset) {
     this._offset = offset;
 }
 
-<<<<<<< HEAD
-=======
 clip.prototype = {
     dragEnd: function(event) {
         console.log(event.layerX);
     }
 }
 
->>>>>>> 7ea326e8a0b2d7039683033d6567faa7e03655d7
 clip.prototype = Object.create(clip.prototype, {
     clipId: {
         get: function() {

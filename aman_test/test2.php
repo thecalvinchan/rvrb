@@ -9,6 +9,7 @@ $client = new Services_Soundcloud(
 try {
       $token_arr = $client->accessToken($_GET['code']);
       var_dump($token_arr);
+      var_dump($token_arr["access_token"]);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
       echo $e->getMessage();
 }
@@ -17,7 +18,6 @@ try {
 <html>
     <body>
         <h1>TEST2.PHP</h1>
-        <p><?php $token_arr["access_token"]; ?></p>
     </body>
 </html>
 

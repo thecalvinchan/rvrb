@@ -17,7 +17,7 @@ if (isset($type)) {
 } elseif (isset($code)) {
   $token_info = $client->accessToken($code);
   $user = json_decode($client->get('me'));
-  foreach($track as $key=>$value):
+  foreach($user as $key=>$value):
     var_dump($key);
     var_dump($value);
   endforeach;

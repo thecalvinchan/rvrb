@@ -1,13 +1,14 @@
 <html>
 	<script>
+		//for backward compatibility
+		window.AudioContext = window.AudioContext || window.webkitAudioContext;
+		
 		//this is like a canvas for audio
 		var context = new AudioContext();
 
 		//object for web audio source
 		var source = context.createBufferSource();
 
-		//for backward compatibility
-		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 
 		//load file

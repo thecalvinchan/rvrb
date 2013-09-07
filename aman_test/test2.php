@@ -18,15 +18,9 @@ $track_data = array(
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
 );
 
-try {
-    $track_info = $client->post('tracks', $track_data);
-    var_dump($track_info);
-    $track = json_decode($track_info);
-    var_dump($track);
-} catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
-    var_dump($e);
-    echo $e->getMessage();
-}
+$track_json = $client->post('tracks', $track_data);
+$track = json_decode($track_json);
+var_dump($track);
 
 ?>
 <html>

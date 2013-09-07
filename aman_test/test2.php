@@ -22,7 +22,7 @@ var_dump($track);
     <body>
         <h1>TEST2.PHP</h1>
         <h2>token_arr</h2>
-        <table style="border:1px solid black;">
+        <table>
             <?php foreach($token_arr as $key=>$value): ?>
             <tr>
                 <td><?php echo $key; ?></td>
@@ -31,7 +31,7 @@ var_dump($track);
             <?php endforeach; ?>
         </table>
         <h2>track</h2>
-        <table style="border:1px solid black;">
+        <table>
             <?php foreach($track as $key=>$value): ?>
             <tr>
                 <td><?php echo $key; ?></td>

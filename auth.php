@@ -19,8 +19,8 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   var_dump($user);
   $key = 'id';
-  var_dump($user->$key);
-  echo $user->$key;
+  $id = $user->$key;
+  echo $id;
 }
 
 /*

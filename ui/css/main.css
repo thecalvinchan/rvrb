@@ -1,0 +1,52 @@
+/** Bootstrap overrides **/
+
+body {
+    padding: 10px;
+}
+
+a {
+    color: #d586c9;
+}
+
+a:hover {
+    color: #d8aad1;
+}
+
+/*************************/
+
+#tracks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tracks {
+    background-color: #f7b8ff;
+    border-bottom: 1px solid #d8aad1;
+    height: 49px;
+    line-height: 49px;
+    position: relative;
+    width: 100%;
+}
+
+.tracks:last-child {
+    border-bottom: none;
+}
+
+.clips {
+    background-color: black;
+    height: inherit;
+    left: attr(offset);
+    line-height: inherit;
+    position: absolute;
+    width: attr(duration)px;
+}
+
+#addNew {
+    border: 1px dashed;
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}

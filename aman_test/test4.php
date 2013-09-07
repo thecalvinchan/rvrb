@@ -63,7 +63,7 @@ if (isset($type)) {
           audioRecorder = new Recorder(inputPoint);
           audioRecorder.record();
         }
-        function starRecord() {
+        function startRecord() {
           navigator.getUserMedia({audio:true}, record, function(e) {
             console.log('Error getting audio');
             console.log(e);

@@ -13,8 +13,8 @@
     <section id="tracks" ng-controller="trackCtrl">
         <ul>
             <li class="tracks" ng-repeat="track in tracks">
-                <div draggable="true" ondragend="dragClipEnd('clip-{{clip.id}}')(event)" class="clips" ng-repeat="clip in track.clips" style="width: {{clip.duration()}}px; left: {{clip.offset}}" id="clip-{{clip.id}}"> 
-                    {{clip.start}}
+                <div draggable="true" ondragend="dragClipEnd({{track.name}},{{clip.Id}})(event)" class="clips" ng-repeat="clip in track.clips" style="width: {{clip.duration()}}px; left: {{clip.offset}}" id="clip-{{clip.clipId}}"> 
+                    {{clip}}
                 </div>
             </li>
         </ul>

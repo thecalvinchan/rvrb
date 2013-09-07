@@ -1,3 +1,4 @@
+window.tracksRef;
 function trackCtrl($scope) {
     $scope.tracks = [{name:"Track One doe"},{name:"Track Two doe"}];
     $scope.addTrack = function() {
@@ -9,24 +10,20 @@ function trackCtrl($scope) {
     };
     $scope.addClip = function() {
         $scope.lastAddedTrack.addClip($scope.newClipName); 
-    }
+    };
+    $scope.$watch("tracks", function(value) {
+        console.log(value);
+    },true);
+    window.tracksRef = $scope.tracks;
 }    
 
-// Event Listener Functions
-
-function dragClip(clipId) {
-    return function() {
-        console.log("Dragging clip "+clipId);
-        event.dataTransfer.effectAllowed = 'move';
+function dragClipEnd(trackName,clipId) {
+    return function(event) {
         console.log(event.layerX);
+        clip.offset = event.layerX;
+        console.log(clip);
     };
 }
-
-function dragClipEnd(clipId) {
-    return function() {
-        console.log(event.layerX);
-    };
-}  
 
 // Classes
 
@@ -73,12 +70,6 @@ function clip(clipId,trackId,start,end,offset) {
     this._start = start;
     this._end = end;
     this._offset = offset;
-}
-
-clip.prototype = {
-    dragEnd: function(event) {
-        console.log(event.layerX);
-    }
 }
 
 clip.prototype = Object.create(clip.prototype, {

@@ -1,6 +1,7 @@
 <?php
 require_once 'php-soundcloud/Services/Soundcloud.php';
 require_once 'dbconnect.php';
+require 'facebook-php-sdk/src/facebook.php';
 
 $type = $_GET['type'];
 $code = $_GET['code'];
@@ -10,17 +11,27 @@ $client = new Services_Soundcloud('d42ba4a95dc468d30b8683e9956e430e',
 $homepage = 'Location: http://rvrb.herokuapp.com/index.html';
 $authpage = 'Location: http://rvrb.herokuapp.com/auth.php';
 
+$config = array();
+$config['appId'] = '144814889061598';
+$config['secret'] = 'fbfb29254b1a5df265bb53961f786d5e'; 
+$config['fileUpload'] = false;
+$fb_client = new Facebook($config);
+$params = array('scope' => 'read_stream, friends_like'
+                'redirect_uri' => $authpage);
 
 if (isset($type)) {
   if ($type == 'sc') {
     $url = $client->getAuthorizeUrl();
     header("Location: " . $url);
   } elseif ($type == 'fb') {
-    header($homepage);
+    $url = $fb_client->getLoginUrl();
+    header("Location: " . $url);
   } else {
     header($homepage);
   }
-} elseif (isset($code)) {
+}
+
+if (isset($code)) {
   $token_info = $client->accessToken($code);
   $user = json_decode($client->get('me'));
   $key = 'id';
@@ -31,6 +42,8 @@ if (isset($type)) {
   }
   header('Location: http://rvrb.herokuapp.com/auth.php?type=fb');
 }
+
+var_dump($_GET);
 
 ?>
 <!DOCTYPE html>

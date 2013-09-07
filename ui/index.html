@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <title>rvrb-beta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="css/normalize.css">-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <section id="tracks" ng-controller="trackCtrl">
+        <ul>
+            <li class="tracks" ng-repeat="track in tracks">
+                <div draggable="true" ondragend="dragClipEnd('clip-{{clip.id}}')(event)" class="clips" ng-repeat="clip in track.clips" style="width: {{clip.duration()}}px; left: {{clip.offset}}" id="clip-{{clip.id}}"> 
+                    {{clip.start}}
+                </div>
+            </li>
+        </ul>
+        <a data-toggle="modal" href="#addTrackModal" id="addNew">&plus; Add Track</a>
+    
+
+        <!-- Modals -->
+        <div class="modal fade" id="addTrackModal"> 
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Add New Track</h4>
+                    </div>
+                    <form role="form" ng-submit="addTrack()">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="trackName">Enter the track name:</label>
+                            <input type="text" ng-model="newTrackName" class="form-control" id="trackName" placeholder="e.g. Bass Track" value="{{newTrackName}}"> 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" onclick="$('#addTrackModal').modal('hide')">Add</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addClipModal"> 
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Upload mp3 file</h4>
+                    </div>
+                    <form role="form" ng-submit="addClip()">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="clipName">Enter the clip name:</label>
+                            <input type="text" ng-model="newClipName" class="form-control" id="clipName" placeholder="e.g. SlimShady.mp3"> 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" onclick="$('#addClipModal').modal('hide')">Upload</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

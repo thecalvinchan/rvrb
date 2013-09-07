@@ -50,6 +50,26 @@ if (isset($type)) {
         var source = context.createBufferSource();
         var inputPoint;
         var audioRecorder;
+        var inputBuffer;
+        var request = new XMLHttpRequest();
+        var url = "atmosphere.mp3";
+        request.open('GET', url, true);
+        request.responseType = 'arraybuffer';
+
+        request.onload = function() {
+          context.decodeAudioData(request.response, function(buffer) {
+            source.buffer = buffer;
+            source.connect(context.destination);
+
+            var filter = context.createBiquadFilter();
+            source.connect(filter);
+            filter.connect(context.destination);
+            filter.type = 0;
+            filter.frequency.value = 4400;
+          })
+        }
+        request.send();
+
         if (!navigator.getUserMedia) {
           navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
         }
@@ -66,6 +86,9 @@ if (isset($type)) {
         }
         function stopRecord() {
           audioRecorder.stop();
+          audioRecorder.getBuffer(function(buffer){
+            inputBuffer = buffer[0];
+          });
         }
         function playSong() {
           source.start(0);

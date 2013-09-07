@@ -23,6 +23,14 @@
 				//set buffer to 
 				source.buffer = buffer;
 				source.connect(context.destination);
+
+				var filter = context.createBiquadFilter();
+				// Create the audio graph.
+				source.connect(filter);
+				filter.connect(context.destination);
+				// Create and specify parameters for the low-pass filter.
+				filter.type = 0; // Low-pass filter. See BiquadFilterNode docs
+				filter.frequency.value = 440; // Set cutoff to 440 HZ
 				//start playing
 				source.start(0);
 			})

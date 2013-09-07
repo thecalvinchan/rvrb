@@ -30,9 +30,9 @@ $track = json_decode($track_info);
             </tr>
             <?php endforeach; ?>
         </table>
+        <h3>Full:</h3>
+        <p><?php var_dump($token_arr); ?></p>
         <h2>track</h2>
-        <p><?php var_dump($track); ?></p>
-        <h1>HEOIHWOFE</h1>
         <table>
             <?php foreach($track as $key=>$value): ?>
             <tr>
@@ -41,6 +41,8 @@ $track = json_decode($track_info);
             </tr>
             <?php endforeach; ?>
         </table>
+        <h3>Full:</h3>
+        <p><?php var_dump($track); ?></p>
     </body>
 </html>
 

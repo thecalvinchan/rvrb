@@ -21,8 +21,8 @@ $track_data = array(
 var_dump($track_data);
 
 try {
-    var_dump($client->post('tracks', $track_data));
-    $track = json_decode($client->post('tracks', $track_data));
+    $track_info = $client->post('tracks', $track_data);
+    $track = json_decode($track_info);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
     echo $e->getMessage();
 }

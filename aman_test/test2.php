@@ -7,12 +7,24 @@ $client = new Services_Soundcloud(
     'http://rvrb.herokuapp.com/aman_test/test2.php');
 
 try {
-      $token_arr = $client->accessToken($_GET['code']);
-      var_dump($token_arr);
-      var_dump($token_arr["access_token"]);
-      var_dump($token_arr["refresh_token"]);
+    $token_arr = $client->accessToken($_GET['code']);
+    var_dump($token_arr);
+    var_dump($token_arr["access_token"]);
+    var_dump($token_arr["refresh_token"]);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
-      echo $e->getMessage();
+    echo $e->getMessage();
+}
+
+$track = array(
+  'track[title]' => 'super appropriate song',
+  'track[tags]' => 'aman A$AP Ferg',
+  'track[asset_data]' => 'super_appropriate_song.mp3'
+);
+
+try {
+    $response = $client->post('tracks', $track);
+} catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
+    echo $e->getMessage();
 }
 
 ?>

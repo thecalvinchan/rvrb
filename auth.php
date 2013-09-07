@@ -20,6 +20,7 @@ if (isset($type)) {
   foreach($user as $key=>$value):
     if ($key == "id") {
       echo "-";
+      echo $user;
       echo "-";
       echo "-";
     }

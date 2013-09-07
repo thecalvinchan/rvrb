@@ -10,7 +10,7 @@ try {
     $token_arr = $client->accessToken($_GET['code']);
     $access = $token_arr["access_token"];
     var_dump($token_arr);
-    var_dump($token_arr["access_token"]);
+    var_dump($access);
     var_dump($token_arr["refresh_token"]);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
     echo $e->getMessage();

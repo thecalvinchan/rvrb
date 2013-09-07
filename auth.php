@@ -19,7 +19,7 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   foreach($user as $key=>$value):
     if ($key == "id") {
-      echo $value
+      echo $value;
     }
   endforeach;
 }

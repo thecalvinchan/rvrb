@@ -21,7 +21,6 @@ if (isset($type)) {
     if ($key == "id") {
       echo "-";
       echo "-";
-      echo $user["$key"];
       echo "-";
     }
   endforeach;

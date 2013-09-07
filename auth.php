@@ -15,7 +15,8 @@ if (isset($type)) {
     header("Location: " . $url);
   }
 } elseif (isset($code)) {
-  $user_json = $client->get('/me');
+  $token_info = $client->accessToken($code);
+  $user_json = $client->get("/me");
 //  $user = json_decode($client->get('me'));
 //  var_dump($user);
 }

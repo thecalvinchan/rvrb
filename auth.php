@@ -2,18 +2,23 @@
 require_once 'php-soundcloud/Services/Soundcloud.php';
 
 $type = $_GET['type'];
+$code = $_GET['code'];
 
-if ($type == 'sc') {
-  $client = new Services_Soundcloud(
-      'd42ba4a95dc468d30b8683e9956e430e', '057c884f3b17bfb0ceaddad026cde32b',
-      'http://rvrb.herokuapp.com/fb.php');
-
-  header("Location: " . $client->getAuthorizeUrl());
-} elseif ($type == 'fb') {
-  header('Location: http://rvrb.herokuapp.com/index.html');
+if (isset($type)) {
+  if ($type == 'sc') {
+    $client = new Services_Soundcloud('d42ba4a95dc468d30b8683e9956e430e',
+                                      '057c884f3b17bfb0ceaddad026cde32b',
+                                      'http://rvrb.herokuapp.com/auth.php');
+    header("Location: " . $client->getAuthorizeUrl());
+  } elseif ($type == 'fb') {
+    header('Location: http://rvrb.herokuapp.com/index.html');
+  } else {
+    var_dump($type);
+  //  header('Location: http://rvrb.herokuapp.com/index.html');
+  }
+} elseif (isset($code)) {
 } else {
-  var_dump($type);
-//  header('Location: http://rvrb.herokuapp.com/index.html');
+  //  header('Location: http://rvrb.herokuapp.com/index.html');
 }
 
 ?>

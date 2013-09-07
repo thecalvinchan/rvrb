@@ -3,6 +3,7 @@
 	<button onclick="togglePlay();">Play/Pause</button>
 	<span id="status">Tap tempo using space bar 4 times.</span>
 	<script src="band.min.js"></script>
+	<script src="band.piano.js"></script>
 	<script>
 		var times = new Array();
 		var bpm = 0;
@@ -31,98 +32,81 @@
 		{
 			FourChords = new BandJS();
 			FourChords.setTimeSignature(4,4);
-			FourChords.setTempo(bpm);
-			var bot = FourChords.createInstrument();
-			var mid = FourChords.createInstrument();
-			//var top = music.createInstrument();
+			FourChords.setTempo(bpm/2);
+			var bot = FourChords.createInstrument('grand','piano');
+			var mid = FourChords.createInstrument('grand','piano');
+			var top = FourChords.createInstrument('grand','piano');
 
-			//I64
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'C3');
-			mid.note('eighth', 'E3');
+			//I
+			///bot.note('whole', 'D2');
+			///mid.note('whole', 'F#2');
+			///top.note('whole', 'A3');
+			bot.note('whole', 'D2');
+			mid.note('whole', 'F#2');
+			top.note('eighth', 'D3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'F#3');
 
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'C3');
-			mid.note('eighth', 'E3');
 
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'C3');
-			mid.note('eighth', 'E3');
 
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'C3');
-			mid.note('eighth', 'E3');
+			//V6
+			///bot.note('whole', 'C#2');
+			//mid.note('whole', 'E2');
+			//top.note('whole', 'A3');
+			bot.note('whole', 'C#2');
+			mid.note('whole', 'E2');
+			top.note('eighth', 'C#3');
+			top.note('eighth', 'E3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'E3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'E3');
+			top.note('eighth', 'A3');
+			top.note('eighth', 'E3');
 
-			//V
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'B3');
-			mid.note('eighth', 'D3');
+			//vi6
+			//bot.note('whole', 'D2');
+			//mid.note('whole', 'F#2');
+			///top.note('whole', 'B3');
+			bot.note('whole', 'B2');
+			mid.note('whole', 'F#2');
+			top.note('eighth', 'D3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'F#3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'F#3');
 
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'B3');
-			mid.note('eighth', 'D3');
 
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'B3');
-			mid.note('eighth', 'D3');
-
-			bot.note('eighth', 'G2');
-			mid.rest('eighth');
-			bot.note('eighth', 'B3');
-			mid.note('eighth', 'D3');
-
-			//vi64
-			bot.note('eighth', 'E2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'E2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'E2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'E2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			//IV
-			bot.note('eighth', 'F2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'F2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'F2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
-
-			bot.note('eighth', 'F2');
-			mid.rest('eighth');
-			bot.note('eighth', 'A3');
-			mid.note('eighth', 'C3');
+			//IV64
+			//bot.note('whole', 'D2');
+			//mid.note('whole', 'G2');
+			//top.note('whole', 'B3');
+			bot.note('whole', 'D2');
+			mid.note('whole', 'G2');
+			top.note('eighth', 'D3');
+			top.note('eighth', 'G3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'G3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'G3');
+			top.note('eighth', 'B3');
+			top.note('eighth', 'G3');
 
 			//finish
-			bot.finish();
+			//bot.finish();
+			//mid.finish();
+			
 			mid.finish();
+			bot.finish();
+			top.finish();
 			FourChords.end();
 			FourChords.loop(true);
 		}

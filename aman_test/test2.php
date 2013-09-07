@@ -17,6 +17,7 @@ try {
 <html>
     <body>
         <h1>TEST2.PHP</h1>
+        <p><?php $token_arr["access_token"]; ?></p>
     </body>
 </html>
 

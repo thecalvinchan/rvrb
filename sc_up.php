@@ -8,6 +8,9 @@ $client = new Services_Soundcloud(
 
 $token_arr = $client->accessToken($_GET['code']);
 
+$uploaddir ='/app/www/tmp/'
+
+
 $track_data = array(
   'track[title]' => 'super appropriate song',
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'

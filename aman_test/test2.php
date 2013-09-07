@@ -20,7 +20,7 @@ $token_arr = $client->accessToken($_GET['code']);
 
 $user = json_decode($client->get('me'));
 
-var_dump($user);
+//var_dump($user);
 echo ($user["id"]);
 
 $track_data = array(

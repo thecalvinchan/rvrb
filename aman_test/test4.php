@@ -137,7 +137,7 @@ if (isset($type)) {
 
 		</script>
       <button onclick="playSong()">Play Song</button>
-      <button onclick="startRecord()">Start Record</button>
-      <button onclick="stopRecord()">Stop Record</button>
+      <button onclick="toggleRecord()">Record</button>
+      <button onclick="playback()">Playback</button>
     </body>
   </html>

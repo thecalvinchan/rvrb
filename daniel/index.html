@@ -2,7 +2,7 @@
 	<script>
 		//for backward compatibility
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
-		
+
 		//this is like a canvas for audio
 		var context = new AudioContext();
 
@@ -13,7 +13,7 @@
 
 		//load file
 		var request = new XMLHttpRequest();
-		var url = "http://citysurf.herokuapp.com/audio/atmosphere.mp3";
+		var url = "atmosphere.mp3";
 		request.open('GET', url, true);
 		request.responseType = 'arraybuffer';
 

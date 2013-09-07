@@ -16,6 +16,7 @@ try {
       $accessToken = $client->accessToken($_GET['code']);
       echo $accessToken;
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
+      echo 'b'
       echo $e->getMessage();
 }
 

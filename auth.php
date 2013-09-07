@@ -14,7 +14,11 @@ if (isset($type)) {
     $url = $client->getAuthorizeUrl();
     header("Location: " . $url);
   }
+} elseif (isset($code)) {
+  $user = $client.get('/me');
+  var_dump($user);
 }
+
 /*
 if (isset($type)) {
   if ($type == 'sc') {

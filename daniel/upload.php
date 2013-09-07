@@ -3,7 +3,7 @@ require './Aws/aws-autoloader.php';
 
 $bucket   = $S3_BUCKET_NAME;
 $keyname1 = 'mp3-uploads';
-$filepath = '/Aws/LICENSE.md';
+$filepath = './Aws/LICENSE.md';
 
 
 // Instantiate the class

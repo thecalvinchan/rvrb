@@ -13,7 +13,7 @@ $client = new Services_Soundcloud(
 
 try {
       $accessToken = $client->accessToken($_GET['code']);
-      echo $accessToken;
+      var_dump($accessToken);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
       echo 'b';
       echo $e->getMessage();
@@ -23,7 +23,6 @@ try {
 <html>
     <body>
         <h1>TEST2.PHP</h1>
-        <p><?php echo $code; ?></p>
     </body>
 </html>
 

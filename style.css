@@ -260,6 +260,38 @@ p.splashdesc {
   padding: 10px;
 }
 
+.openmixbutton {
+  text-align: center; 
+  color: black;
+  height: 50px;
+}
+
+.openmixbutton h5 {
+  text-transform: none;
+}
+
+.openmixbutton a {
+  text-decoration: none;
+  color: black;
+  width: 200px;
+  padding: 10px;
+}
+
+.openmixbutton a:hover {
+  text-decoration: underline;
+  border: 1px solid black;
+  width: 200px;
+  padding: 10px;
+}
+
+#mixbuttoncontainer { 
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+  left: 0;
+  width: 100%;
+}
+
 button {
   width: auto;
   float: left;

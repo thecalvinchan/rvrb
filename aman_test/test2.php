@@ -10,6 +10,8 @@ $token_arr = $client->accessToken($_GET['code']);
 $access = $token_arr["access_token"];
 $refresh = $token_arr["refresh_token"];
 
+var_dump($token_arr);
+
 $track_data = array(
   'track[title]' => 'super appropriate song',
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
@@ -23,9 +25,6 @@ var_dump($track);
 <html>
     <body>
         <h1>TEST2.PHP</h1>
-        <?php foreach ($a as $k => $v) {
-          echo "\$a[$k] => $v.\n";
-        } ?>
         <p><?php echo $token_arr; ?></p>
         <p><?php echo $access; ?></p>
         <p><?php echo $refresh; ?></p>

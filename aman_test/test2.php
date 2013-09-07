@@ -7,8 +7,6 @@ $client = new Services_Soundcloud(
     'http://rvrb.herokuapp.com/aman_test/test2.php');
 
 $token_arr = $client->accessToken($_GET['code']);
-$access = $token_arr["access_token"];
-$refresh = $token_arr["refresh_token"];
 
 var_dump($token_arr);
 
@@ -25,9 +23,10 @@ var_dump($track);
 <html>
     <body>
         <h1>TEST2.PHP</h1>
-        <p><?php echo $token_arr; ?></p>
-        <p><?php echo $access; ?></p>
-        <p><?php echo $refresh; ?></p>
+        <p>ACCESS TOKEN: <?php echo $token_arr["access_token"]; ?></p>
+        <p>REFRESH TOKEN: <?php echo $token_arr["refresh_token"]; ?></p>
+        <p>EXPIRES IN: <?php echo $token_arr["expires_in"]; ?></p>
+        <p>SCOPE: <?php echo $token_arr["scope"]; ?></p>
     </body>
 </html>
 

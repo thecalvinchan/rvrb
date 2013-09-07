@@ -1,12 +1,11 @@
 <?php
 require_once 'php-soundcloud/Services/Soundcloud.php';
-require_once 'dbconnect.php';
 
 $type = $_GET['type'];
 $code = $_GET['code'];
-$client = new Services_Soundcloud('d42ba4a95dc468d30b8683e9956e430e',
-                                  '057c884f3b17bfb0ceaddad026cde32b',
-                                  'http://rvrb.herokuapp.com/auth.php');
+$client = new Services_Soundcloud('3986a172489d4744894147b7516b964b',
+                                  '1609b9b8e5d6083c77e372ba9d235fb0',
+                                  'http://rvrb.herokuapp.com/aman_test/test4.php');
 $homepage = 'Location: http://rvrb.herokuapp.com/index.html';
 
 
@@ -24,10 +23,7 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   $key = 'id';
   $id = $user->$key;
-  $query = 'INSERT INTO rvrb_users(id) SELECT '.$id.' FROM DUAL WHERE NOT EXISTS (SELECT id from rvrb_users WHERE id='.$id.' LIMIT 1)';
-  if (!mysql_query($query)) {
-    echo ('nope');
-  }
+  echo $id;
 } else {
   header($homepage);
 }
@@ -52,5 +48,11 @@ if (isset($type)) {
       <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
+      <script src="recorder.js"></script>
+      <script>
+      </script>
+      <button onclick="playSong()">Play Song</button>
+      <button onclick="toggleRecord()">Record</button>
+      <button onclick="playback()">Playback</button>
     </body>
   </html>

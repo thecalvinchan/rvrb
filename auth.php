@@ -8,6 +8,13 @@ $client = new Services_Soundcloud('d42ba4a95dc468d30b8683e9956e430e',
                                   'http://rvrb.herokuapp.com/auth.php');
 $homepage = 'Location: http://rvrb.herokuapp.com/index.html';
 
+
+if (isset($type)) {
+  if ($type == 'sc') {
+    $url = $client->getAuthorizeUrl();
+    header("Location: " . $url);
+  }
+}
 /*
 if (isset($type)) {
   if ($type == 'sc') {

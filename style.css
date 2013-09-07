@@ -1,0 +1,423 @@
+::selection{background:#333;color:#fff}::-moz-selection{background:#333;color:#fff}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+::-webkit-scrollbar-track:hover {
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #dfdfdf; 
+}
+
+a, a:visited, a:hover {
+  color: #f1bf6c;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	z-index: 70;
+	position: relative;
+	background-color: #fff;
+}
+
+#header p {
+  font-size: 1.3em;
+  float: right;
+  margin: 10px 15px 0px 0px;
+}
+
+#plan-select {
+  float: right;
+  margin: 15px 15px 0px 0px;
+  width: 250px;
+}
+
+#container {
+  min-height:100%;
+  position:relative;
+}
+
+.row.mcontent {
+  padding-bottom:80px;
+}
+
+#leftbar {
+	background-color: #f1bf6c;
+	width: 150px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left:;
+	text-align: center;
+	overflow: auto;
+	overflow-x: hidden;
+  z-index:60;
+	
+}
+
+#leftbar span {
+	display: none;
+}
+
+#leftbar h5 {
+	border-bottom: solid 5px #fff;
+	margin-top: 110px;
+	padding-bottom: 10px;
+	background-color: #f1bf6c;
+	position: relative;
+	z-index: 1;
+}
+
+#leftbar li {
+	z-index: 61;
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+	list-style: none;
+	margin-left: 35px;
+	margin-top: 20px;
+	background-color: #f1bf6c;
+	border: solid 5px #fff;
+	text-transform: uppercase;
+
+	font-family: 'proxima_nova_ltbold', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#leftbar li.pastdue {
+  background-color: #dfdfdf;
+}
+
+#leftbar li.complete {
+  background-color: #fff;
+}
+
+#leftbar li h6 {
+	margin-top: 25px;
+	font-size: 1.3em;
+	color: #fff;
+}
+
+#leftbar li.complete h6 {
+  color: #f1bf6c;
+}
+
+#leftbar li.pastdue h6 {
+  color: #f1bf6c;
+}
+
+#leftbar li:hover {
+	background-color: #fff;
+	cursor: pointer;
+}
+
+#leftbar li:hover h6 {
+	color: #f1bf6c;
+}
+
+#leftbar li:hover span {
+	display: block;
+}
+
+.fadeout { 
+	position: fixed; 
+	z-index: 5;
+	bottom: 0; left: 0;
+	width: 150px; 
+	text-align: center; 
+	margin: 0; padding: 30px 0; 
+	
+	/* "transparent" only works here because == rgba(0,0,0,0) */ 
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba(255,255,255,0)),color-stop(1, white));
+        background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), white);
+        background-image: -moz-linear-gradient(top, rgba(255,255,255,0), white);
+        background-image: -ms-linear-gradient(top, rgba(255,255,255,0), white);
+        background-image: -o-linear-gradient(top, rgba(255,255,255,0), white);
+}
+
+#timespine {
+	background-color: #fff;
+	width: 5px;
+	height: 100%;
+	position: fixed;
+	margin-left: 75px;
+	top: 0px;
+	z-index: -1;
+}
+
+.content {
+	margin-top: -25px;
+}
+
+button {
+  width: auto;
+  float: left;
+  padding: 10px;
+  border-radius: ;
+  background-color: #f1bf6c;
+  border: 3px solid LightGrey;
+  color: LightGrey;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 50px;
+  position: relative;
+  bottom: 15px;
+  margin: 10px;
+  font-family: 'proxima_nova_ltbold', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+button:hover {
+  border: 3px solid #fff;
+  background-color: #fff;
+  color: #f1bf6c;
+}
+
+#buttons {
+  width: 350px;
+  margin: 0 auto;
+}
+
+body {
+	background-image: url('../img/bg.png');
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  height: 100%;
+}
+
+body.splash {
+	background-color: #fff;
+	background-image: none;	
+}
+
+h1, h2, h5 {
+	text-transform: uppercase;
+	font-size: 1.5em;
+	color: #adacad;
+	font-family: 'proxima_nova_ltbold', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1 {
+	font-size: 6em;
+	text-align: center;
+	color: #f1bf6c;
+	margin-top: 100px;
+}
+
+#header h1 {
+	margin-top: 10px;
+	float: left;
+	margin-left: 20px;
+	font-size: 2em;
+}
+
+#header h2 {
+	margin-top: 4px;
+	float: left;
+	margin-left: 20px;
+	font-size: 3em;
+	color: #f1bf6c;
+}
+
+
+h2 {
+	font-size: 4em;
+	text-align: center;
+	color: #f1bf6c;
+}
+
+p.splashdesc {
+	color: #f1bf6c;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+.footer h5 {
+	color: #f1bf6c;
+}
+
+.splashbutton {
+  text-align: center; 
+  color: #f1bf6c;
+  height: 50px;
+}
+
+.splashbutton a {
+  color: #f1bf6c;
+  border-radius: 30px;
+  width: 200px;
+  border: 3px solid #f1bf6c;
+  padding: 10px;
+}
+
+.splashbutton a:hover {
+  color: #f1bf6c;
+  background-color: #fff;
+  border-radius: 30px;
+  width: 200px;
+  padding: 10px;
+}
+
+button {
+  width: auto;
+  float: left;
+  padding: 10px;
+  background-color: #fff;
+  border: 3px solid LightGrey;
+  color: LightGrey;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 50px;
+  position: relative;
+  bottom: 15px;
+  margin: 10px;
+  font-family: 'proxima_nova_ltbold', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+button:hover {
+  border: 3px solid #f1bf6c;
+  background-color: #f1bf6c;
+  color: #fff;
+}
+
+#buttons {
+  width: 350px;
+  margin: 0 auto;
+}
+
+/* -- modals -- */
+/* Container */
+.modal {
+
+/* Overlay page content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+
+/* Transition opacity on open */
+  -webkit-transition: opacity 500ms ease-in;
+  -moz-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
+
+/* Hide for now */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show modal */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+/* at time of writing (Feb 2012), pointer-events not supported by Opera or IE */
+}
+
+/* Content */
+.modal > div {
+  width: 500px;
+  background: #fff;
+  position: relative;
+  margin: 10% auto;
+
+/* Default minimise animation */
+  -webkit-animation: minimise 500ms linear;
+  -moz-animation: minimise 500ms linear;
+
+/* Prettify */
+  padding: 30px;
+
+  background: #fff;
+
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* Override animation on modal open */
+.modal:target > div {
+  -webkit-animation-name: bounce;
+  -moz-animation-name: bounce;
+}
+
+.modal h2 {
+  font-size: 50px;
+  padding: 0 0 10px;
+}
+
+/* Modal close link */
+.modal a[href="#close"] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: transparent;
+}
+
+/* Reset native styles */
+.modal a[href="#close"]:focus {
+  outline: none;
+}
+
+/* Create close button */
+.modal a[href="#close"]:after {
+  content: 'X';
+  display: block;
+
+/* Position */
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 1.5em;
+  padding: 1px 1px 1px 2px;
+
+/* Style */
+  text-decoration: none;
+  text-shadow: none;
+  text-align: center;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 20px;
+}
+
+.modal a[href="#close"]:focus:after,
+.modal a[href="#close"]:hover:after {
+  -webkit-transform: scale(1.1,1.1);
+  -moz-transform: scale(1.1,1.1);
+}
+
+.modal a[href="#close"]:focus:after {
+  outline: 1px solid #000;
+}
+
+/* Open modal */
+a.openModal {
+  margin: 1em auto;
+  display: block;
+  width: 200px;
+  background: #ccc;
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+  background: #fff;
+  text-shadow: 0 1px 0 #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+a.openModal:hover,
+a.openModal:focus {
+  background: -moz-linear-gradient(#fff, #ccc);
+  background: -webkit-linear-gradient(#fff, #ccc);
+  background: -o-linear-gradient(#fff, #ccc);
+}
+
+.modal p {
+  font-style: normal;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 25px;
+  font-size: 15px;
+}

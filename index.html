@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en">
+<![endif]-->
+  <!--[if gt IE 8]><!-->
+  <html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+      <meta charset="utf-8" />
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width" />
+      <title>Rvrb</title>
+      <!-- Included CSS Files (Compressed) -->
+      <link rel="stylesheet" href="style.css" />
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    </head>
+    <body class="splash">
+      <div class="row">
+        <div class="twelve columns">
+          <h1>Welcome to Rvrb!</h1>
+          <p class="splashdesc">The ultimate online mixer tool.</p>
+        </div>
+        <div class="four columns splashbutton">
+          <h5><a href="#signup">Ready to Start?</a></h5>
+        </div>
+        <div class="four columns splashbutton">
+          <h5><a href="#about">Who We Are</a></h5>
+        </div>
+        <div class="four columns splashbutton">
+          <h5><a href="#why">Why Rvrb?</a></h5>
+        </div>
+        <aside id="signup" class="modal">
+          <div>
+            <h2>Start making music</h2>
+            <p>Ready to try out Rvrb for yourself? Just sign in with your Soundcloud or Facebook account and we can get down to business.</p>
+            <div id="buttons" style="padding-left: 25px;"><a href="sc_auth.php"><button>Soundcloud</button></a><a href="fb_auth.php"><button>Facebook</button></a></div>
+            <br /><br />
+            <a href="#close" title="Close">Close</a>
+          </div>
+        </aside>
+        <aside id="about" class="modal">
+          <div>
+            <h2>WHO WE ARE</h2>
+            <p>Rvrb was built with love by Calvin Chan, James Wu, Daniel Duan, and Aman Agarwal at PennApps Fall 2013. This project is the product of many hours of caffeine and hard work.</p>
+            <a href="#close" title="Close">Close</a>
+          </div>
+        </aside>
+        <aside id="why" class="modal">
+          <div>
+            <h2>WHY RVRB?</h2>
+            <p>JUST FUCKING TRY IT!</p>
+            <a href="#close" title="Close">Close</a>
+          </div>
+        </aside>
+      </div>
+      <!-- Included JS Files (Compressed) -->
+      <script src="javascripts/jquery.js"></script>
+      <script src="javascripts/foundation.min.js"></script>
+      <!-- Initialize JS Plugins -->
+      <script src="javascripts/app.js"></script>
+      <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    </body>
+  </html>

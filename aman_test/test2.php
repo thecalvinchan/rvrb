@@ -15,7 +15,7 @@ $track_data = array(
 
 $track_info = $client->post('tracks', $track_data);
 $track = json_decode($track_info);
-var_dump($track);
+// var_dump($track);
 
 ?>
 <html>
@@ -31,6 +31,8 @@ var_dump($track);
             <?php endforeach; ?>
         </table>
         <h2>track</h2>
+        <p><?php echo $track; ?></p>
+<h1>HEOIHWOFE</h1>
         <table>
             <?php foreach($track as $key=>$value): ?>
             <tr>

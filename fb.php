@@ -1,7 +1,6 @@
 <?php
 $client = new Services_Soundcloud(
-    'd42ba4a95dc468d30b8683e9956e430e', '057c884f3b17bfb0ceaddad026cde32b',
-    'http://rvrb.herokuapp.com/aman_test/test2.php');
+    'd42ba4a95dc468d30b8683e9956e430e', '057c884f3b17bfb0ceaddad026cde32b');
 
 $token_arr = $client->accessToken($_GET['code']);
 ?>

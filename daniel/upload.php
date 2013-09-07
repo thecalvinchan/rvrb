@@ -1,5 +1,5 @@
 <?php
-require '/Aws/aws-autoloader.php';
+require './Aws/aws-autoloader.php';
 
 $bucket   = $S3_BUCKET_NAME;
 $keyname1 = 'mp3-uploads';

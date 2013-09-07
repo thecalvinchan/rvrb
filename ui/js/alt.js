@@ -131,13 +131,15 @@ document.onready = function() {
     window.rvrb = new rvrbInit();
     rvrb.trackFactory = new trackContainer();
     rvrb.trackFactory.addTrack();
+    rvrb.trackFactory.addTrack();
+    rvrb.trackFactory.tracks[0].addClip();
     rvrb.trackFactory.tracks[0].addClip();
     console.log(rvrb.trackFactory.tracks[0]);
     rvrb.trackFactory.addTrack();
     rvrb.trackFactory.tracks[0].clips[0].changeTrack(rvrb.trackFactory.tracks[1]);
     console.log(rvrb.trackFactory.tracks[0]);
     console.log(rvrb.trackFactory.tracks[1]);
-    rvrb.render(document.getElementById("tracks"),rvrb.trackFactory,addListeners); 
+    rvrb.render(document.getElementById("tracks"),rvrb.trackFactory,addDragListeners); 
 }
 
 function rvrbInit() {
@@ -157,25 +159,31 @@ function rvrbInit() {
 
 /** EVENT LISTENERS **/
 
-function addListeners(trackFactory) {
+function addDragListeners(trackFactory) {
     for (track in trackFactory.tracks) {
         for (clip in trackFactory.tracks[track].clips) {
             var obj = trackFactory.tracks[track].clips[clip];
             var dom = document.getElementById("clip"+obj.id);
-            dom.addEventListener("mousedown",toggleDrag(obj));
+            dom.addEventListener("mousedown",initDrag(obj));
             document.addEventListener("mousemove",moveDrag(obj));
-            document.addEventListener("mouseup",toggleDrag(obj));
+            document.addEventListener("mouseup",endDrag(obj));
         }
     }
 }
 
-function toggleDrag(obj) {
+function initDrag(obj) {
     return function(event) {
         if (!obj.drag) {
             obj.drag = event.pageX;
             obj.original = document.getElementById("clip"+obj.id).getAttribute("style");
         }
-        else {
+    }
+}
+
+
+function endDrag(obj) {
+    return function(event) {
+        if (obj.drag) {
             var delta = event.pageX - obj.drag;
             obj.clipData.offset += delta;
             document.getElementById("clip"+obj.id).setAttribute("style",obj.original);

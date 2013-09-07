@@ -52,6 +52,5 @@ if (isset($type)) {
       <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-<?php if $type
     </body>
   </html>

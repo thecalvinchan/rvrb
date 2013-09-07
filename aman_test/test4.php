@@ -39,13 +39,8 @@ if (isset($type)) {
     <!--<![endif]-->
     <head>
       <meta charset="utf-8" />
-      <!-- Set the viewport width to device width for mobile -->
       <meta name="viewport" content="width=device-width" />
       <title>Rvrb</title>
-      <!-- Included CSS Files (Compressed) -->
-      <link rel="stylesheet" href="style.css" />
-      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-      <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
       <script src="recorder.js"></script>

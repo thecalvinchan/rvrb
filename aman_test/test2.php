@@ -13,7 +13,8 @@ $track_data = array(
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
 );
 
-$track = json_decode($client->post('tracks', $track_data));
+$track_info = $client->post('tracks', $track_data);
+$track = json_decode($track_info);
 
 ?>
 <html>
@@ -22,6 +23,15 @@ $track = json_decode($client->post('tracks', $track_data));
         <h2>token_arr</h2>
         <table>
             <?php foreach($token_arr as $key=>$value): ?>
+            <tr>
+                <td><?php echo $key; ?></td>
+                <td><?php echo $value; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <h2>track_info</h2>
+        <table>
+            <?php foreach($track_info as $key=>$value): ?>
             <tr>
                 <td><?php echo $key; ?></td>
                 <td><?php echo $value; ?></td>

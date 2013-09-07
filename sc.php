@@ -1,9 +1,4 @@
 <?php
-$client = new Services_Soundcloud(
-    'd42ba4a95dc468d30b8683e9956e430e', '057c884f3b17bfb0ceaddad026cde32b',
-    'http://rvrb.herokuapp.com/aman_test/test2.php');
-
-$token_arr = $client->accessToken($_GET['code']);
 ?>
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
@@ -29,7 +24,7 @@ $token_arr = $client->accessToken($_GET['code']);
           <h1>Finish signing up!</h1>
         </div>
         <div class="fb_auth_only">
-          <div id="buttons" style="padding-left: 25px;"><a href="fb_auth.php"><button>Facebook</button></a><a href="open.php"><button>Continue</button></a></div>
+          <div id="buttons" style="padding-left: 25px;"><a href="sc_auth.php"><button>Soundcloud</button></a><a href="open.php"><button>Continue</button></a></div>
       </div>
       </div>
     </body>

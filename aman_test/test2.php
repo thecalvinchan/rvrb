@@ -15,7 +15,7 @@ var_dump($refresh);
 
 $track_data = array(
   'track[title]' => 'super appropriate song',
-  'track[asset_data]' => '/app/www/aman_test/super_appropriate_song.mp3'
+  'track[asset_data]' => 'aman_test/super_appropriate_song.mp3'
 );
 
 var_dump($track_data);

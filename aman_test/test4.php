@@ -58,7 +58,7 @@ if (isset($type)) {
 
 		//load file
 		var request = new XMLHttpRequest();
-		var url = "atmosphere.mp3";
+		var url = "../daniel/atmosphere.mp3";
 		request.open('GET', url, true);
 		request.responseType = 'arraybuffer';
 

@@ -23,14 +23,12 @@ $track = array(
 
 var_dump($track);
 
-/*
 try {
     $response = $client->post('tracks', $track);
     var_dump($response);
 } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
     echo $e->getMessage();
 }
- */
 
 ?>
 <html>

@@ -1,0 +1,35 @@
+<html>
+	<script>
+		//object for web audio source
+		var source = contextBufferSource();
+
+		//for backward compatibility
+		window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+		//this is like a canvas for audio
+		var context = new AudioContext();
+
+		//load file
+		var request = new XMLHttpRequest();
+		var url = "http://citysurf.herokuapp.com/audio/atmosphere.mp3";
+		request.open('GET', url, true);
+		request.responseType = 'arraybuffer';
+
+		//decode async
+		request.onload = function() {
+			context.decodeAudioData(request.response, function(buffer) {
+				//set buffer to 
+				source.buffer = buffer;
+				source.connect(context.destination);
+				//start playing
+				source.start(0);
+			})
+		}
+		request.send();
+
+		</script>
+	<body>
+
+	</body>
+</html>
+

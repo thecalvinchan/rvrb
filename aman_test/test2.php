@@ -13,9 +13,7 @@ $track_data = array(
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
 );
 
-$track_json = $client->post('tracks', $track_data);
-$track = json_decode($track_json);
-var_dump($track);
+$track = json_decode($client->post('tracks', $track_data));
 
 ?>
 <html>

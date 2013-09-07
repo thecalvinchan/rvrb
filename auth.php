@@ -24,7 +24,7 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   $key = 'id';
   $id = $user->$key;
-  $query = 'INSERT INTO rvrb_users(id) SELECT '.$id.' FROM DUAL WHERE NOT EXISTS (SELECT id from rvrb_users WHERE id='.$id.' LIMIT 1';
+  $query = 'INSERT INTO rvrb_users(id) SELECT '.$id.' FROM DUAL WHERE NOT EXISTS (SELECT id from rvrb_users WHERE id='.$id.' LIMIT 1)';
   if (!mysql_query($query)) {
     echo ('nope');
   }

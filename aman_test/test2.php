@@ -21,6 +21,8 @@ var_dump($track_data);
 
 $track = json_decode($client->post('tracks', $track_data));
 
+$a = 5;
+
 var_dump($track);
 
 try {

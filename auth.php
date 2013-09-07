@@ -15,6 +15,9 @@ if (isset($type)) {
     header("Location: " . $url);
   } elseif ($type == 'fb') {
     header($homepage);
+  } else {
+    header($homepage);
+  }
   }
 } elseif (isset($code)) {
   $token_info = $client->accessToken($code);

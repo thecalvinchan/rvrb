@@ -24,26 +24,9 @@ if (isset($type)) {
   $key = 'id';
   $id = $user->$key;
   echo $id;
-}
-
-/*
-if (isset($type)) {
-  if ($type == 'sc') {
-    $url = $client->getAuthorizeUrl();
-    header("Location: " . $url);
-  } elseif ($type == 'fb') {
-    header($homepage);
-  } else {
-    var_dump($type);
-  //  header($homepage);
-  }
-} elseif (isset($code)) {
-  $user = $client.get('/me');
-  var_dump($user);
 } else {
-  //  header($homepage);
+  header($homepage);
 }
- */
 
 ?>
 <!DOCTYPE html>

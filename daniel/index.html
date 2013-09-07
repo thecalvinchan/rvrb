@@ -82,7 +82,7 @@
 		}
 
 		function playback() {
-			var newSource = context.createBufferSourceNode();
+			var newSource = context.createBufferSource();
     		var newBuffer = context.createBuffer( 1, inputBuffer.length, context.sampleRate );
 		    newBuffer.getChannelData(0).set(inputBuffer);
 		    newSource.buffer = newBuffer;

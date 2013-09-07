@@ -48,5 +48,11 @@ if (isset($type)) {
       <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
+      <script src="recorder.js"></script>
+      <script>
+      </script>
+      <button onclick="playSong()">Play Song</button>
+      <button onclick="toggleRecord()">Record</button>
+      <button onclick="playback()">Playback</button>
     </body>
   </html>

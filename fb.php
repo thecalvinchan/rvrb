@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if IE 8]>
@@ -18,14 +21,12 @@
     </head>
     <body class="splash">
       <div class="row">
-        <div id="mixbuttoncontainer">
-          <div class="four columns openmixbutton">
-            <h5><a href="#signup">New mix</a></h5>
-          </div>
-          <div class="four columns openmixbutton">
-            <h5><a href="#about">Load mix</a></h5>
-          </div>
+        <div class="twelve columns">
+          <h1>Finish signing up!</h1>
         </div>
+        <div class="fb_auth_only">
+          <div id="buttons" style="padding-left: 25px;"><a href="fb_auth.php"><button>Facebook</button></a><a href="open.html"><button>Continue</button></a></div>
+      </div>
       </div>
     </body>
   </html>

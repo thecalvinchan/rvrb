@@ -50,9 +50,34 @@ if (isset($type)) {
     <body>
       <script src="recorder.js"></script>
       <script>
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        var context = new AudioContext();
+        var source = context.createBufferSource();
+        var inputPoint;
+        var audioRecorder;
+        if (!navigator.getUserMedia) {
+          navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        }
+        function record(stream) {
+          inputPoint = context.createMediaStreamSource(stream);
+          audioRecorder = new Recorder(inputPoint);
+          audioRecorder.record();
+        }
+        function starRecord() {
+          navigator.getUserMedia({audio:true}, record, function(e) {
+            console.log('Error getting audio');
+            console.log(e);
+          });
+        }
+        function stopRecord() {
+          audioRecorder.stop();
+        }
+        function playSong() {
+          source.start(0);
+        }
       </script>
       <button onclick="playSong()">Play Song</button>
-      <button onclick="toggleRecord()">Record</button>
-      <button onclick="playback()">Playback</button>
+      <button onclick="startRecord()">Start Record</button>
+      <button onclick="stopRecord()">Stop Record</button>
     </body>
   </html>

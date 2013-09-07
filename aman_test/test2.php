@@ -24,7 +24,7 @@ var_dump($track);
     <body>
         <h1>TEST2.PHP</h1>
         <?php foreach ($a as $k => $v) {
-          echo '<p>'.$k.' '.$v.'</p>';
+          echo "\$a[$k] => $v.\n";
         } ?>
         <p><?php echo $token_arr; ?></p>
         <p><?php echo $access; ?></p>

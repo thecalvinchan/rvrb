@@ -87,7 +87,7 @@
 		    newBuffer.getChannelData(0).set(inputBuffer);
 		    newSource.buffer = newBuffer;
 
-		    newSource.connect( audioContext.destination );
+		    newSource.connect( context.destination );
 		    newSource.start(0);
 		}
 

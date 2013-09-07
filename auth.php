@@ -18,6 +18,7 @@ if (isset($type)) {
   $token_info = $client->accessToken($code);
   $user = json_decode($client->get('me'));
   var_dump($user);
+  $key = 'id';
 //  echo $user->id;
 }
 

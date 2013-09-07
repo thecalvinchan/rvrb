@@ -17,14 +17,7 @@ if (isset($type)) {
 } elseif (isset($code)) {
   $token_info = $client->accessToken($code);
   $user = json_decode($client->get('me'));
-  foreach($user as $key=>$value):
-    if ($key == "id") {
-      echo "-";
-      echo $user["$key"];
-      echo "-";
-      echo "-";
-    }
-  endforeach;
+  echo $user->"id";
 }
 
 /*

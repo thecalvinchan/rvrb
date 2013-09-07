@@ -8,8 +8,6 @@ $client = new Services_Soundcloud(
 
 $token_arr = $client->accessToken($_GET['code']);
 
-var_dump($token_arr);
-
 $track_data = array(
   'track[title]' => 'super appropriate song',
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
@@ -23,10 +21,20 @@ var_dump($track);
 <html>
     <body>
         <h1>TEST2.PHP</h1>
+        <h2>token_arr</h2>
         <p>ACCESS TOKEN: <?php echo $token_arr["access_token"]; ?></p>
         <p>REFRESH TOKEN: <?php echo $token_arr["refresh_token"]; ?></p>
         <p>EXPIRES IN: <?php echo $token_arr["expires_in"]; ?></p>
         <p>SCOPE: <?php echo $token_arr["scope"]; ?></p>
+        <h2>track</h2>
+        <table>
+            <?php foreach($track as $key=>$value): ?>
+            <tr>
+                <td><?php echo $key; ?></td>
+                <td><?php echo $value; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
     </body>
 </html>
 

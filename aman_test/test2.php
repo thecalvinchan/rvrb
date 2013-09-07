@@ -8,13 +8,17 @@ $client = new Services_Soundcloud(
 
 $token_arr = $client->accessToken($_GET['code']);
 
+$user = json_decode($client->get('me'));
+
+var_dump($user);
+
 $track_data = array(
   'track[title]' => 'super appropriate song',
   'track[asset_data]' => '@/app/www/aman_test/super_appropriate_song.mp3'
 );
 
-$track_info = $client->post('tracks', $track_data);
-$track = json_decode($track_info);
+//$track_info = $client->post('tracks', $track_data);
+//$track = json_decode($track_info);
 // var_dump($track);
 
 ?>

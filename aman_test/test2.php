@@ -21,6 +21,8 @@ $track = array(
   'track[asset_data]' => 'super_appropriate_song.mp3'
 );
 
+var_dump($track);
+
 /*
 try {
     $response = $client->post('tracks', $track);

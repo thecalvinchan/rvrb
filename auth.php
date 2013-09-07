@@ -20,6 +20,7 @@ if (isset($type)) {
   var_dump($user);
   $key = 'id';
   var_dump($user->$key);
+  echo $user->$key;
 }
 
 /*

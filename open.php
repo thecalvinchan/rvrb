@@ -14,7 +14,7 @@
       <meta name="viewport" content="width=device-width" />
       <title>Rvrb</title>
       <!-- Included CSS Files (Compressed) -->
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="style-open.css" />
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
       <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
@@ -22,10 +22,14 @@
       <div class="row">
         <div id="mixbuttoncontainer">
           <div class="four columns openmixbutton">
-            <h5><a href="#signup">New mix</a></h5>
+            <h3>No files are open.</h3>
+            <h4>Open a file to begin editing.</h4>
+          </div><br>
+          <div class="four columns openmixbutton">
+            <h5><a href="#signup"><img src="img/files.png" />&nbsp;&nbsp;New mix</a></h5>
           </div>
           <div class="four columns openmixbutton">
-            <h5><a href="#about">Load mix</a></h5>
+            <h5><a href="#about"><img src="img/load.png" />&nbsp;&nbsp;Load mix</a></h5>
           </div>
         </div>
       </div>

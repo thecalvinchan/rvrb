@@ -21,7 +21,7 @@ $token_arr = $client->accessToken($_GET['code']);
 $user = json_decode($client->get('me'));
 
 var_dump($user);
-echo ($user['id']);
+echo ($user["id"]);
 
 $track_data = array(
   'track[title]' => 'super appropriate song',

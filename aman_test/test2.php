@@ -6,8 +6,11 @@ $client = new Services_Soundcloud(
     'd42ba4a95dc468d30b8683e9956e430e', '057c884f3b17bfb0ceaddad026cde32b',
     'http://rvrb.herokuapp.com/aman_test/test2.php');
 
+$access;
+
 try {
     $token_arr = $client->accessToken($_GET['code']);
+    $access = $token_arr["access_token"];
     var_dump($token_arr);
     var_dump($token_arr["access_token"]);
     var_dump($token_arr["refresh_token"]);
@@ -15,11 +18,12 @@ try {
     echo $e->getMessage();
 }
 
-$track = array(
+var_dump($access);
+
+$track = json_decode($client->post('tracks', array(
   'track[title]' => 'super appropriate song',
-  'track[tags]' => 'aman A$AP Ferg',
   'track[asset_data]' => 'super_appropriate_song.mp3'
-);
+)));
 
 var_dump($track);
 

@@ -26,9 +26,10 @@
 			}
 		}
 
+		var FourChords;
 		function createTrack()
 		{
-			var FourChords = new BandJS();
+			FourChords = new BandJS();
 			FourChords.setTimeSignature(4,4);
 			FourChords.setTempo(bpm);
 			var bot = FourChords.createInstrument();

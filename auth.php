@@ -19,8 +19,7 @@ if (isset($type)) {
   $user = json_decode($client->get('me'));
   foreach($user as $key=>$value):
     if ($key == "id") {
-      var_dump($key);
-      var_dump($value);
+      var_dump($user[$key]);
     }
   endforeach;
 }

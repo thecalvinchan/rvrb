@@ -26,23 +26,19 @@ $track = json_decode($track_info);
             <?php foreach($token_arr as $key=>$value): ?>
             <tr>
                 <td><?php echo $key; ?></td>
-                <td><?php echo $value; ?></td>
+                <td><?php var_dump($value); ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
-        <h3>Full:</h3>
-        <p><?php var_dump($token_arr); ?></p>
         <h2>track</h2>
         <table>
             <?php foreach($track as $key=>$value): ?>
             <tr>
                 <td><?php echo $key; ?></td>
-                <td><?php echo $value; ?></td>
+                <td><?php var_dump($value); ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
-        <h3>Full:</h3>
-        <p><?php var_dump($track); ?></p>
     </body>
 </html>
 

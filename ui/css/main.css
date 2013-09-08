@@ -54,7 +54,11 @@ a:hover {
     position: absolute;
 }
 
-#addNew {
+.clip-selected {
+    background-color: red;
+}
+
+#addNewTrack {
     border: 1px dashed;
     display: block;
     height: 48px;

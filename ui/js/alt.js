@@ -6,9 +6,11 @@ function trackContainer() {
 
 trackContainer.prototype = {
     addTrack: function() {
+        console.log(this);
+        console.log(track);
         var unique = this._numTracks++;
-        var newTrack = new track(unique,this);
-        this._tracks[unique] = newTrack;
+        this._tracks[unique] = new track(unique,this);
+        return this._tracks[unique];
     },
     removeTrack: function(trackId) {
         this.tracks[trackId] = null;
@@ -140,46 +142,79 @@ document.onready = function() {
     console.log(rvrb.trackFactory.tracks[0]);
     console.log(rvrb.trackFactory.tracks[1]);
     rvrb.render(document.getElementById("tracks"),rvrb.trackFactory,addDragListeners); 
-}
+    document.getElementById("addNewTrack").addEventListener("click",function(){
+        var track = rvrb.trackFactory.addTrack();
+        console.log("hello");
+        document.getElementById("tf"+rvrb.trackFactory.id).innerHTML += track.render();
+        addDragListeners(rvrb);
+    });
+};
 
 function rvrbInit() {
     this.render = function(dom,trackFactory,callback) {
         dom.innerHTML = trackFactory.render() + dom.innerHTML;
         var factoryDom = document.getElementById("tf"+trackFactory.id);
-        for (track in trackFactory.tracks) {
+        for (var track in trackFactory.tracks) {
             factoryDom.innerHTML += trackFactory.tracks[track].render();
             var trackDom = document.getElementById("track"+trackFactory.tracks[track].id);
-            for (clip in trackFactory.tracks[track].clips) {
+            for (var clip in trackFactory.tracks[track].clips) {
                 trackDom.innerHTML += trackFactory.tracks[track].clips[clip].render();
             }
         }
-        callback(trackFactory);
+        callback(this);
     };
+    this._editTool = "select";
 }
+
+rvrbInit.prototype = {
+    changeTool: function(newTool) {
+        this._editTool = newTool;
+    }
+}
+
+rvrbInit.prototype = Object.create(rvrbInit.prototype,{
+    editTool : {
+        get : function() {
+            return this._editTool;
+        }
+    }
+});
 
 /** EVENT LISTENERS **/
 
-function addDragListeners(trackFactory) {
-    for (track in trackFactory.tracks) {
-        for (clip in trackFactory.tracks[track].clips) {
-            var obj = trackFactory.tracks[track].clips[clip];
+function addDragListeners(app) {
+    for (var track in app.trackFactory.tracks) {
+        for (var clip in app.trackFactory.tracks[track].clips) {
+            var obj = app.trackFactory.tracks[track].clips[clip];
             var dom = document.getElementById("clip"+obj.id);
-            dom.addEventListener("mousedown",initDrag(obj));
+            dom.addEventListener("mousedown",initDrag(app,obj));
             document.addEventListener("mousemove",moveDrag(obj));
             document.addEventListener("mouseup",endDrag(obj));
+            //dom.addEventListener("click",initClick(obj,app));
         }
     }
 }
 
-function initDrag(obj) {
+function initDrag(app,obj) {
     return function(event) {
         if (!obj.drag) {
             obj.drag = event.pageX;
             obj.original = document.getElementById("clip"+obj.id).getAttribute("style");
         }
+        if (app.editTool == "select") {
+            if (app.selected && app.selected != obj) {
+                app.selected = obj;
+                $(".clip-selected").removeClass('clip-selected');
+                $("#clip"+obj.id).addClass('clip-selected');
+            }
+            else if (!app.selected) {
+                app.selected = obj;
+                var id = "#clip"+obj.id;
+                $("#clip"+obj.id).addClass('clip-selected');
+            }
+        }
     }
 }
-
 
 function endDrag(obj) {
     return function(event) {
